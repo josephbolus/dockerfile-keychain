@@ -25,54 +25,44 @@ Create sendgrid account.
 
 [http://sendgrid.com](http://sendgrid.com)
 
-Make /keychain directory.
-
-```
-$ mkdir /keychain
-```
-
-Create a /keychain/.env file.
-
-```
-$ cat /keychain/.env
-AWS_ACCESS_KEY_ID=abc123
-AWS_SECRET_ACCESS_KEY=abcd1234
-SENDGRID_USERNAME=ryan
-SENDGRID_PASSWORD=password
-KEYCHAIN_BUCKET_NAME=keychain.io
-```
-
 Starting keychain.io container.
 
 ```
-docker run -d -v /keychain/.env:/keychain/.env:ro -p 5000:5000 uzyexe/keychain
+docker run \
+  -e YOUR_AWS_ACCESS_KEY_ID=abc123 \
+  -e YOUR_AWS_SECRET_ACCESS_KEY=abcd1234 \
+  -e YOUR_SENDGRID_USERNAME=username \
+  -e YOUR_SENDGRID_PASSWORD=password \
+  -e YOUR_KEYCHAIN_BUCKET_NAME=keychain.io \
+  -p 5000:5000 \
+  uzyexe/keychain
 ```
 
 ## Upload your default SSH key
 
 ```
-curl -s example.keychain.io/<email>/upload | bash
+curl -s example.keychain.io:5000/<email>/upload | bash
 ```
 
 ## Install your key into authorized_keys
 
 ```
-curl -s example.keychain.io/<email>/install | bash
+curl -s example.keychain.io:5000/<email>/install | bash
 ```
 
 ## API URLs
 
 ```
-example.keychain.io/<email>
-example.keychain.io/<email>/upload
-example.keychain.io/<email>/install
-example.keychain.io/<email>/fingerprint
-example.keychain.io/<email>/confirm/<token>
-example.keychain.io/<email>/all
-example.keychain.io/<email>/all/install
-example.keychain.io/<email>/<namedkey>
-example.keychain.io/<email>/<namedkey>/fingerprint
-example.keychain.io/<email>/<namedkey>/install
-example.keychain.io/<email>/<namedkey>/upload
+example.keychain.io:5000/<email>
+example.keychain.io:5000/<email>/upload
+example.keychain.io:5000/<email>/install
+example.keychain.io:5000/<email>/fingerprint
+example.keychain.io:5000/<email>/confirm/<token>
+example.keychain.io:5000/<email>/all
+example.keychain.io:5000/<email>/all/install
+example.keychain.io:5000/<email>/<namedkey>
+example.keychain.io:5000/<email>/<namedkey>/fingerprint
+example.keychain.io:5000/<email>/<namedkey>/install
+example.keychain.io:5000/<email>/<namedkey>/upload
 ```
 
