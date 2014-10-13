@@ -1,17 +1,17 @@
 FROM debian:wheezy
 
-RUN apt-get update -qq
-RUN apt-get install -qy git python-dev python-pip ruby ruby-dev rubygems
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get update -qq && apt-get install -qy git python-dev python-pip ruby ruby-dev rubygems
+RUN pip install Flask==0.9 requests==0.14.1 boto==2.6.0 eventlet==0.9.17 && gem install foreman --no-ri --no-rdoc
+RUN git clone https://github.com/progrium/keychain.io.git
 
-RUN mkdir /keychain
-RUN git clone https://github.com/progrium/keychain.io.git /keychain
+ENV YOUR_AWS_ACCESS_KEY_ID      **FALSE**
+ENV YOUR_AWS_SECRET_ACCESS_KEY  **FALSE**
+ENV YOUR_SENDGRID_USERNAME      **FALSE**
+ENV YOUR_SENDGRID_PASSWORD      **FALSE**
+ENV YOUR_KEYCHAIN_BUCKET_NAME   **FALSE**
 
-WORKDIR /keychain
-RUN pip install -r requirements.txt
-RUN gem install foreman --no-ri --no-rdoc
+ADD run.sh /run.sh
 
 EXPOSE 5000
 
-CMD ["/usr/local/bin/foreman", "start"]
+CMD ["/run.sh"]
