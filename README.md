@@ -6,8 +6,6 @@ keychain.io is simple service to put your public key on servers for easy login (
 keychain.io use s3, sendgrid email.
 
 [http://keychain.io](http://keychain.io)
-[http://aws.amazon.com/s3/](http://aws.amazon.com/s3/)
-[http://sendgrid.com](http://sendgrid.com)
 
 ## Dockerfile
 
@@ -31,9 +29,9 @@ Starting keychain.io container.
 docker run \
   -e YOUR_AWS_ACCESS_KEY_ID=abc123 \
   -e YOUR_AWS_SECRET_ACCESS_KEY=abcd1234 \
+  -e YOUR_KEYCHAIN_BUCKET_NAME=s3.bucket.name \
   -e YOUR_SENDGRID_USERNAME=username \
   -e YOUR_SENDGRID_PASSWORD=password \
-  -e YOUR_KEYCHAIN_BUCKET_NAME=keychain.io \
   -p 5000:5000 \
   uzyexe/keychain
 ```
