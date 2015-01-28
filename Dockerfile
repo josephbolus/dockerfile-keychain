@@ -16,6 +16,6 @@ ENV YOUR_KEYCHAIN_BUCKET_NAME   **FALSE**
 
 ADD run.sh /run.sh
 
-EXPOSE 5000
-
 CMD ["/run.sh"]
+
+EXPOSE 5000
