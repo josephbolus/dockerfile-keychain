@@ -32,7 +32,7 @@ docker run \
   -e YOUR_KEYCHAIN_BUCKET_NAME=s3.bucket.name \
   -e YOUR_SENDGRID_USERNAME=username \
   -e YOUR_SENDGRID_PASSWORD=password \
-  -p 5000:5000 \
+  --net=host \
   uzyexe/keychain
 ```
 
