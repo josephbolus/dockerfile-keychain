@@ -5,7 +5,7 @@
 keychain.io is simple service to put your public key on servers for easy login (via SSH).
 keychain.io use s3, sendgrid email.
 
-[http://keychain.io](http://keychain.io)
+[http://keychain.io](https://github.com/progrium/keychain.io)
 
 ## Dockerfile
 

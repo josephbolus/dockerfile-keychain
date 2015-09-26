@@ -1,12 +1,11 @@
-FROM debian:wheezy
+FROM alpine:3.2
 
-RUN apt-get update -qq && \
-    apt-get install -qy git python-dev python-pip ruby ruby-dev rubygems && \
-    apt-get clean all && \
-    rm -rf /var/lib/apt/lists/* && \
+RUN apk add --update python-dev py-pip ruby ruby-dev gcc musl-dev git && \
     pip install Flask==0.9 requests==0.14.1 boto==2.6.0 eventlet==0.9.17 && \
     gem install foreman --no-ri --no-rdoc && \
-    git clone https://github.com/progrium/keychain.io.git
+    git clone https://github.com/progrium/keychain.io.git && \
+    apk del --purge git gcc musl-dev py-pip && \
+    rm -rf /var/cache/apk/*
 
 ENV YOUR_AWS_ACCESS_KEY_ID      **FALSE**
 ENV YOUR_AWS_SECRET_ACCESS_KEY  **FALSE**
