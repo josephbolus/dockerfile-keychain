@@ -1,4 +1,4 @@
-FROM alpine:3.2
+FROM alpine:3.3
 
 RUN apk add --update python-dev py-pip ruby ruby-dev gcc musl-dev git ca-certificates && \
     pip install Flask==0.9 requests==0.14.1 boto==2.6.0 eventlet==0.9.17 && \
