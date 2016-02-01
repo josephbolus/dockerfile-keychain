@@ -1,4 +1,4 @@
-# uzyexe/keychain
+# uzyexe/keychain [![Circle CI](https://circleci.com/gh/uzyexe/dockerfile-keychain.svg?style=svg)](https://circleci.com/gh/uzyexe/dockerfile-keychain)
 
 ## What is keychain.io
 
