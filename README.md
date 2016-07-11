@@ -13,7 +13,7 @@ keychain.io use s3, sendgrid email.
 
 [**Trusted Build**](https://hub.docker.com/r/uzyexe/keychain/)
 
-This Docker image is based on the official [alpine:3.3](https://hub.docker.com/_/alpine/) base image.
+This Docker image is based on the official [alpine:3.4](https://hub.docker.com/_/alpine/) base image.
 
 ## How to use this image
 
