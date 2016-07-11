@@ -13,7 +13,7 @@ ENV YOUR_SENDGRID_USERNAME      **FALSE**
 ENV YOUR_SENDGRID_PASSWORD      **FALSE**
 ENV YOUR_KEYCHAIN_BUCKET_NAME   **FALSE**
 
-ADD run.sh /run.sh
+COPY run.sh /run.sh
 
 CMD ["/run.sh"]
 
