@@ -7,14 +7,13 @@ RUN apk add --update make python-dev py-pip ruby ruby-dev gcc musl-dev git ca-ce
     apk del --purge make git gcc musl-dev py-pip && \
     rm -rf /var/cache/apk/*
 
-ENV YOUR_AWS_ACCESS_KEY_ID      **FALSE**
-ENV YOUR_AWS_SECRET_ACCESS_KEY  **FALSE**
-ENV YOUR_SENDGRID_USERNAME      **FALSE**
-ENV YOUR_SENDGRID_PASSWORD      **FALSE**
-ENV YOUR_KEYCHAIN_BUCKET_NAME   **FALSE**
+ENV AWS_ACCESS_KEY_ID      **YOUR_AWS_ACCESS_KEY_ID**
+ENV AWS_SECRET_ACCESS_KEY  **YOUR_AWS_SECRET_ACCESS_KEY**
+ENV SENDGRID_USERNAME      **YOUR_SENDGRID_USERNAME**
+ENV SENDGRID_PASSWORD      **YOUR_SENDGRID_PASSWORD**
+ENV KEYCHAIN_BUCKET_NAME   **YOUR_KEYCHAIN_BUCKET_NAME**
 
-COPY run.sh /run.sh
-
-CMD ["/run.sh"]
+ENTRYPOINT ["/usr/bin/foreman"]
+CMD ["start", "-d", "/keychain.io"]
 
 EXPOSE 5000
