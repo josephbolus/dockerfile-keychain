@@ -29,12 +29,12 @@ Starting keychain.io container.
 
 ```
 docker run \
-  -e YOUR_AWS_ACCESS_KEY_ID=abc123 \
-  -e YOUR_AWS_SECRET_ACCESS_KEY=abcd1234 \
-  -e YOUR_KEYCHAIN_BUCKET_NAME=s3.bucket.name \
-  -e YOUR_SENDGRID_USERNAME=username \
-  -e YOUR_SENDGRID_PASSWORD=password \
-  --net=host \
+  -e AWS_ACCESS_KEY_ID=abc123 \
+  -e AWS_SECRET_ACCESS_KEY=abcd1234 \
+  -e KEYCHAIN_BUCKET_NAME=s3.bucket.name \
+  -e SENDGRID_USERNAME=username \
+  -e SENDGRID_PASSWORD=password \
+  -p 5000:5000
   uzyexe/keychain
 ```
 
